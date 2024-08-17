@@ -5,10 +5,12 @@ on:
     branches:
       - main  # 또는 원하는 브랜치 이름
       - develop
+      - master
   pull_request:
     branches:
       - main  # 또는 원하는 브랜치 이름
       - develop
+      - master
 
 jobs:
   build:
@@ -49,6 +51,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
+            echo "${{ secrets.ENV_FILE }}" > deploy/conf/.env
             echo "${{ secrets.GHCR_TOKEN }}" | sudo docker login ghcr.io -u ${{ secrets.GIT_USER }} --password-stdin
             cd deploy/conf  
             docker-compose pull back         
