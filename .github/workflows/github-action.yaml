@@ -30,7 +30,7 @@ jobs:
           java-version: '17'
 
       - name: Build with Gradle
-        run: ./gradlew clean build --continue
+        run: ./gradlew bootJar
 
       - name: Build Docker Image
         run: docker build -t ghcr.io/topazkang/back-test:latest .
