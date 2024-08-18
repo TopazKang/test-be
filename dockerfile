@@ -12,4 +12,4 @@ COPY build/libs/*.jar /app/app.jar
 EXPOSE 8080
 
 # 5. Define the command to run the application
-CMD ["java", "-jar", "/app/app.jar"]
+ENTRYPOINT ["nohup", "java", "-jar", "/app/app.jar", "> /app/nohup.out", "2>&1"]
