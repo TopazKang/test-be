@@ -57,5 +57,5 @@ jobs:
             echo "${{ secrets.ENV_FILE }}" > deploy/conf/.env
             echo "${{ secrets.GHCR_TOKEN }}" | sudo docker login ghcr.io -u ${{ secrets.GIT_USER }} --password-stdin
             cd deploy/conf  
-            docker-compose pull back         
-            docker-compose up -d back         
+            sudo docker-compose pull back         
+            sudo docker-compose up -d back         
